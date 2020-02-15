@@ -2,6 +2,7 @@ extends Node2D
 
 
 var dialogue_data = {}
+var prompt_data = {}
 
 var awaiting_response := false
 
@@ -12,6 +13,7 @@ func _ready():
 	
 	if text_data != null:
 		dialogue_data = text_data["dialogue_data"]
+		prompt_data = text_data["prompt_data"]
 	
 	# warning-ignore:return_value_discarded
 	Message.connect("prompt_responded", self, "_on_prompt_responded")
@@ -19,12 +21,11 @@ func _ready():
 
 func _input(_event):
 	if Input.is_action_just_pressed("ui_accept") and not awaiting_response:
-		if Message.display_prompt(
-				{
-					"text" : "Hello World",
-					"options" : ["Yes", "No", "Maybe", "So"]
-					}
-				):
+#		if not Message.display_dialogue(dialogue_data["test_size"]):
+#			pass
+		
+		
+		if Message.display_prompt(prompt_data["test_prompt"], false):
 			awaiting_response = true
 		else:
 			# Handle non-display here if needed
@@ -33,10 +34,23 @@ func _input(_event):
 func _on_prompt_responded(value):
 	awaiting_response = false
 	
+	var response = ""
+	
+	match value:
+		0:
+			response = "Yes"
+		1:
+			response = "Double Yes"
+		2:
+			response = "Extra Yes"
+		3:
+			response = "Totally"
+		_:
+			response = "ERROR"
+	
 	var custom_dialogue = dialogue_data["test_size"]
 	
-	custom_dialogue[0] = custom_dialogue[0] % str(value)
+	custom_dialogue[0] = custom_dialogue[0] % [response, "- AniMerrill"]
 	
 	Message.display_dialogue(custom_dialogue)
-	yield(Message, "message_finished")
 

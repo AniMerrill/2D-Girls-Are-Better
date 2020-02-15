@@ -17,7 +17,7 @@ extends CanvasLayer
 	
 	For best results, display_message should be called as thus:
 		Message.display_dialogue(<dialogue array>)
-		yield(Message, 'message_finished'')
+		yield(Message, 'message_finished')
 	
 	Prompt is an output which then allows the player to pick one of four
 	possible options. When display_prompt() is called, it expects a dictionary
@@ -69,7 +69,7 @@ extends CanvasLayer
 	message successfully displays or false if it does not.
 	"""
 
-signal message_finished
+#signal message_finished
 signal prompt_responded(value)
 
 enum MessageType {DIALOGUE, PROMPT, MENU}
@@ -249,7 +249,7 @@ func next_dialogue():
 		
 		current_messages = []
 		
-		emit_signal("message_finished")
+#		emit_signal("message_finished")
 		
 		message_delay.start()
 		return

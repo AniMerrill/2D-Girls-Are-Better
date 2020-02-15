@@ -3,16 +3,25 @@
 "dialogue_data" : {
 	"test_size" : [
 		"
-		[%s]
+		%s
 		0123456789 123456789 123456789 123456789
 		Lorem ipsum dolor sit amet, consectetur
 		adipiscing elit. Vestibulum sit amet
 		nibh sollicitudin, mattis mi id, aliquam
 		metus. Suspendisse dapibus ligula
 		finibus velit mattis maximus. Cras id ex
-		felis. Praesent metus dui, pellentesque
+		%s
 		"
 	]
+},
+
+"prompt_data" : {
+	"test_prompt" : {
+		"text" : "Is Godot the best game engine?",
+		"options" : [
+			"Yes", "Double Yes", "Extra Yes", "Totally"
+		]
+	}
 }
 
 }
