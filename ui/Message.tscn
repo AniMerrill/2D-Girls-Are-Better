@@ -19,8 +19,13 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 590.0
 margin_bottom = 160.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="Dialogue" type="RichTextLabel" parent="Main"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -38,16 +43,98 @@ bbcode_text = "Hello World"
 text = "Hello World"
 scroll_active = false
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Prompt" type="Control" parent="Main"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Main/Prompt"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 550.0
+margin_bottom = 125.0
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Hello World"
+text = "0123456789 123456789 123456789 123456789
+0123456789 123456789 123456789 123456789"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option0" type="Button" parent="Main/Prompt"]
+margin_left = 30.0
+margin_top = 69.0
+margin_right = 262.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 232, 20 )
+custom_fonts/font = ExtResource( 1 )
+text = "> 0123456789 1234"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1" type="Button" parent="Main/Prompt"]
+margin_left = 340.0
+margin_top = 69.0
+margin_right = 572.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 232, 20 )
+custom_fonts/font = ExtResource( 1 )
+text = "Hello World"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option2" type="Button" parent="Main/Prompt"]
+margin_left = 30.0
+margin_top = 120.0
+margin_right = 262.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 232, 20 )
+custom_fonts/font = ExtResource( 1 )
+text = "> 0123456789 1234"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option3" type="Button" parent="Main/Prompt"]
+margin_left = 340.0
+margin_top = 120.0
+margin_right = 572.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 232, 20 )
+custom_fonts/font = ExtResource( 1 )
+text = "Hello World"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Menu" type="Control" parent="Main"]
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MessageDelay" type="Timer" parent="."]
 wait_time = 0.1

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "JoyputStickData",
 "language": "GDScript",
 "path": "res://addons/animerrill.joyput/joyput_dependencies/joyput_stick_data.gd"
+}, {
+"base": "Reference",
+"class": "TextData",
+"language": "GDScript",
+"path": "res://ui/TextData.gd"
 } ]
 _global_script_class_icons={
 "JoyputStick": "",
-"JoyputStickData": ""
+"JoyputStickData": "",
+"TextData": ""
 }
 
 [application]
@@ -39,7 +45,7 @@ Message="*res://ui/Message.tscn"
 
 window/size/width=600
 window/size/height=480
-window/stretch/mode="viewport"
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [editor_plugins]
@@ -67,4 +73,3 @@ quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
-quality/dynamic_fonts/use_oversampling=false
