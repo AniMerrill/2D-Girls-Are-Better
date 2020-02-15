@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_pressed("ui_accept"):
 		Message.display_dialogue(["[tornado]Hello, World![/tornado]"])
 		yield(Message, "message_finished")
