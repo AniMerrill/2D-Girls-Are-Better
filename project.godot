@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "JoyputStick",
+"language": "GDScript",
+"path": "res://addons/animerrill.joyput/joyput_dependencies/joyput_stick.gd"
+}, {
+"base": "Reference",
+"class": "JoyputStickData",
+"language": "GDScript",
+"path": "res://addons/animerrill.joyput/joyput_dependencies/joyput_stick_data.gd"
+} ]
 _global_script_class_icons={
-
+"JoyputStick": "",
+"JoyputStickData": ""
 }
 
 [application]
@@ -18,9 +29,25 @@ _global_script_class_icons={
 config/name="Godot Wild Jam 18"
 config/icon="res://icon.png"
 
+[autoload]
+
+Joyput="*res://addons/animerrill.joyput/joyput.gd"
+
+[display]
+
+window/size/width=600
+window/size/height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "animerrill.joyput" )
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
