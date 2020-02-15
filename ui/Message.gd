@@ -69,10 +69,14 @@ extends CanvasLayer
 	"""
 
 
+# Sends out which of the four options (0-3) the player picked
 signal prompt_responded(value)
+# For use when text scroll stops
+signal text_finished
 
 enum MessageType {DIALOGUE, PROMPT, MENU}
 
+# Two positions for the message box.
 const TOP_Y_POSITION := 0.0
 const BOTTOM_Y_POSITION := 310
 
@@ -80,10 +84,11 @@ export var dialogue_rate := 20 # Characters per second
 
 var message_type : int = MessageType.DIALOGUE
 
-var current_index := 0
-var current_messages : PoolStringArray = []
-var current_options : PoolStringArray = []
+var current_index := 0 # For dialogue, tracks which line is currently displayed
+var current_messages : PoolStringArray = [] # Text array for display_dialogue()
+var current_options : PoolStringArray = [] # For the prompt buttons' text
 
+# For text scroll
 var current_chars_displayed := 0
 
 var allow_new_message := true
@@ -153,11 +158,14 @@ func _process(delta):
 			full_text_shown = process_text_scroll(dialogue, delta)
 			
 			if full_text_shown:
+				emit_signal("text_finished")
 				set_process(false)
 		MessageType.PROMPT:
 			full_text_shown = process_text_scroll(prompt_text, delta)
 			
 			if full_text_shown:
+				emit_signal("text_finished")
+				show_prompt_options()
 				set_process(false)
 		_:
 			pass
@@ -209,6 +217,11 @@ func process_text_scroll(label : RichTextLabel, delta : float):
 			# Good place to play dialogue noises
 		
 		return false
+		
+	elif dialogue_rate == -1:
+		label.percent_visible = 1
+		return true
+		
 	else:
 		return true
 
@@ -275,9 +288,10 @@ func display_prompt(prompt, bottom := true) -> bool:
 		
 		for i in prompt_options.size():
 			if i >= prompt["options"].size():
-				prompt_options[i].visible = false
+#				prompt_options[i].visible = false
+				prompt_options[i].text = ""
 			else:
-				prompt_options[i].visible = true
+#				prompt_options[i].visible = true
 				prompt_options[i].text = prompt["options"][i]
 		
 		prompt_options[0].grab_focus()
@@ -296,6 +310,14 @@ func display_prompt(prompt, bottom := true) -> bool:
 		# Can be used to check if message was rejected from whatever source
 		# calls the dialogue to display.
 		return false
+
+
+func show_prompt_options():
+	for option in prompt_options:
+		if option.text != "":
+			option.visible = true
+	
+	prompt_options[0].grab_focus()
 
 
 func disable_all_visibility():

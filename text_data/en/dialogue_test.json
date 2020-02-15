@@ -17,7 +17,8 @@
 
 "prompt_data" : {
 	"test_prompt" : {
-		"text" : "Is Godot the best game engine?",
+		"text" :
+			"Is Godot the best game engine?",
 		"options" : [
 			"Yes", "Double Yes", "Extra Yes", "Totally"
 		]

@@ -31,6 +31,7 @@ func _input(_event):
 			# Handle non-display here if needed
 			pass
 
+
 func _on_prompt_responded(value):
 	awaiting_response = false
 	
