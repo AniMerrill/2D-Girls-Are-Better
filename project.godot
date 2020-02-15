@@ -27,11 +27,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Wild Jam 18"
+run/main_scene="res://test/test.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Joyput="*res://addons/animerrill.joyput/joyput.gd"
+Message="*res://ui/Message.tscn"
 
 [display]
 

@@ -48,3 +48,7 @@ margin_bottom = 40.0
 [node name="Menu" type="Control" parent="Main"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="MessageDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
