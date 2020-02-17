@@ -13,6 +13,9 @@ export var text_data_file := "dialogue_test"
 # determine whether or not to do anything when the player presses the accept
 # button.
 var player_body = null
+# If using custom string insertion (%) you must get a deep copy of text_data
+# before performing the operation, otherwise you will overwrite the stored
+# value.
 var text_data = {}
 var awaiting_response = false
 
@@ -30,7 +33,7 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed("ui_accept") and not awaiting_response:
 		if player_body is PlayerOverworld:
-			_play_interaction(player_body)
+			_play_interaction()
 		else:
 			# Idk if anything is necessary here
 			pass
@@ -48,7 +51,8 @@ func _on_body_exited(body):
 
 # Intended to be a virtual function that can be overwritten by unique
 # interactable objects/NPCs.
-func _play_interaction(player : PlayerOverworld):
+# warning-ignore:unused_argument
+func _play_interaction():
 	pass
 	
 #	# Sample of calling simple dialogue
@@ -59,4 +63,5 @@ func _play_interaction(player : PlayerOverworld):
 #	else:
 #		yield(Message, "message_finished")
 #
-#	player.allow_input = true
+#	player_body.allow_input = true
+

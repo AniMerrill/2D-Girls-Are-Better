@@ -12,6 +12,12 @@
 		finibus velit mattis maximus. Cras id ex
 		%s
 		"
+	],
+	"test_responded" : [
+		"
+		You already responded \"%s\"
+		to my question!
+		"
 	]
 },
 

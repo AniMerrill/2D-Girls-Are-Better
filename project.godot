@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "SpeakTrigger",
 "language": "GDScript",
-"path": "res://test/SpeakTrigger.gd"
+"path": "res://objects/SpeakTrigger.gd"
 }, {
 "base": "Reference",
 "class": "TextData",
