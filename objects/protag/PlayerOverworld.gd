@@ -1,3 +1,4 @@
+class_name PlayerOverworld
 extends KinematicBody
 
 
@@ -6,13 +7,16 @@ enum Direction {EAST, NORTH, SOUTH, WEST}
 const SPEED := 4.0 # 1.5 seems about appropriate for normal walk anim
 
 export (Direction) var starting_direction : int = Direction.EAST
-export var debug_enabled := true setget set_debug_enabled
+export var debug_enabled := false setget set_debug_enabled
 
 var velocity := Vector3.ZERO
 
 var rig_facing_angle := 0.0 setget set_rig_facing_angle
 var current_anim := "idle" setget set_current_anim
-var katana_visible := true setget set_katana_visible
+var katana_visible := false setget set_katana_visible
+
+var look_target := Vector3.ZERO
+var allow_input := true
 
 var looping_anim_list := [
 	"idle", 
@@ -46,9 +50,12 @@ func _process(_delta):
 	
 	velocity = Vector3(walking_value.x, velocity.y, walking_value.y)
 	
-	var current_velocity = move_and_slide(velocity)
+	var current_velocity = Vector3.ZERO
 	
-	if walking_input.strength > 0:
+	if allow_input:
+		current_velocity = move_and_slide(velocity)
+	
+	if walking_input.strength > 0 and allow_input:
 		if rig_facing_angle != walking_input.angle:
 			self.rig_facing_angle = walking_input.angle
 		

@@ -69,6 +69,7 @@ extends CanvasLayer
 	"""
 
 
+signal message_finished
 # Sends out which of the four options (0-3) the player picked
 signal prompt_responded(value)
 # For use when text scroll stops
@@ -262,6 +263,8 @@ func next_dialogue():
 		current_messages = []
 		
 		message_delay.start()
+		
+		emit_signal("message_finished")
 		return
 	
 	dialogue.bbcode_text = current_messages[current_index]
