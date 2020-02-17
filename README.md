@@ -1,4 +1,10 @@
-# Coming soon!
+# 2D Girls Are Better
+Submission for the Godot Wild Jam #18
+
+By AniMerrill, a.k.a. Ethan Merrill (MIT)
+
+## Synopsis
+Coming soon!
 
 ## External Resources
 ### General
