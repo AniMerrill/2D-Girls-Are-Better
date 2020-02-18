@@ -23,17 +23,26 @@ static func get_data(filename : String, locality : String):
 	var json_result = JSON.parse(json).result
 	
 	for dialogue in json_result["dialogue_data"]:
-		
 		for i in json_result["dialogue_data"][dialogue].size():
 			var temp = json_result["dialogue_data"][dialogue][i]
 			
-			temp = temp.dedent()
-			
-			if temp.begins_with("\n"):
-				temp.erase(0,1)
-			
-			json_result["dialogue_data"][dialogue][i] = temp
+			json_result["dialogue_data"][dialogue][i] = sanitize_text(temp)
+	
+	for prompt in json_result["prompt_data"]:
+		var temp = json_result["prompt_data"][prompt]["text"]
+		
+		json_result["prompt_data"][prompt]["text"] = sanitize_text(temp)
 	
 	file.close()
 	
 	return json_result
+
+
+static func sanitize_text(text : String) -> String:
+	text = text.dedent()
+	
+	if text.begins_with("\n"):
+		text.erase(0,1)
+	
+	return text
+

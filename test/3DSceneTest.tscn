@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://objects/protag/Protag.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/MapScene.gd" type="Script" id=2]
@@ -22,6 +22,12 @@ extents = Vector3( 0.32, 0.32, 0.32 )
 [sub_resource type="CylinderShape" id=6]
 
 [sub_resource type="BoxShape" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
 
 [node name="3DSceneTest" type="Spatial"]
 script = ExtResource( 2 )
@@ -134,6 +140,11 @@ trigger_name = "WestEnter"
 
 [node name="CollisionShape" type="CollisionShape" parent="SceneTriggers/EastExit"]
 shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="SceneTriggers/EastExit"]
+transform = Transform( 2.14657, 0, 0, 0, -1.62921e-07, 1, 0, -2.0851, -3.39705e-07, 0, 0.0269493, 0 )
+mesh = SubResource( 9 )
+material/0 = null
 
 [node name="EastEnter" type="Area" parent="SceneTriggers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0384, 0, 0 )
