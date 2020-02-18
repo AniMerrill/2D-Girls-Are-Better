@@ -1,4 +1,6 @@
 extends Node2D
+# NOTE: This script actually does a lot of things very poorly, and are
+# demonstrated better elsewhere
 
 
 var dialogue_data = {}

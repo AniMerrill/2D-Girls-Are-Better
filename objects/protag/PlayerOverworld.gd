@@ -1,5 +1,7 @@
 class_name PlayerOverworld
 extends KinematicBody
+"""
+"""
 
 
 enum Direction {EAST, NORTH, SOUTH, WEST}
@@ -15,7 +17,7 @@ var rig_facing_angle := 0.0 setget set_rig_facing_angle
 var current_anim := "idle" setget set_current_anim
 var katana_visible := false setget set_katana_visible
 
-var look_target := Vector3.ZERO
+var look_target := Vector3.ZERO # TODO: Make character look at interacted object
 var allow_input := false
 
 var looping_anim_list := [

@@ -1,4 +1,10 @@
 extends CanvasLayer
+""" Helper class for doing fade and other transitions when changing scenes.
+	
+	SceneTransition singleton inspired by the work Ereborn did for our project
+	Metempsychosis (MIT)!
+	https://github.com/AniMerrill/Metempsychosis
+	"""
 
 
 signal transition_completed

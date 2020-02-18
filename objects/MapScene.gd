@@ -5,6 +5,8 @@ extends Spatial
 	"""
 
 
+export var background_music : AudioStream
+
 onready var protag : PlayerOverworld = $Protag
 
 

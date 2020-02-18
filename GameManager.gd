@@ -10,6 +10,7 @@ func _ready():
 			"ui_left", "ui_right", "ui_up", "ui_down"
 			)
 	
+	# TODO: Have the songs just loaded from scenes where they are relevant.
 	audio.stream = load("res://audio/bgm/GJ_ambient.ogg")
 	audio.play()
 
