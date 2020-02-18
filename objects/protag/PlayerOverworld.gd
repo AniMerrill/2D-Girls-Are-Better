@@ -16,7 +16,7 @@ var current_anim := "idle" setget set_current_anim
 var katana_visible := false setget set_katana_visible
 
 var look_target := Vector3.ZERO
-var allow_input := true
+var allow_input := false
 
 var looping_anim_list := [
 	"idle", 

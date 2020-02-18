@@ -57,11 +57,11 @@ func _play_interaction():
 	
 #	# Sample of calling simple dialogue
 #	player_body.allow_input = false
-#
+#	
 #	if not Message.display_dialogue(text_data["dialogue_data"]["test_size"]):
 #		pass
 #	else:
 #		yield(Message, "message_finished")
-#
+#	
 #	player_body.allow_input = true
 

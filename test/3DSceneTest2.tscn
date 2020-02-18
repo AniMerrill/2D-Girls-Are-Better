@@ -123,25 +123,26 @@ shape = SubResource( 6 )
 
 [node name="SceneTriggers" type="Spatial" parent="."]
 
-[node name="EastExit" type="Area" parent="SceneTriggers"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0363, 0, 0 )
+[node name="WestExit" type="Area" parent="SceneTriggers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2585, 0, 0 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
-scene_path = "test/3DSceneTest2.tscn"
-trigger_name = "WestEnter"
+scene_path = "test/3DSceneTest.tscn"
+trigger_name = "EastEnter"
+direction = 3
 
-[node name="CollisionShape" type="CollisionShape" parent="SceneTriggers/EastExit"]
+[node name="CollisionShape" type="CollisionShape" parent="SceneTriggers/WestExit"]
 shape = SubResource( 7 )
 
-[node name="EastEnter" type="Area" parent="SceneTriggers"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0384, 0, 0 )
+[node name="WestEnter" type="Area" parent="SceneTriggers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2733, 0, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="SceneTriggers/EastEnter"]
+[node name="CollisionShape" type="CollisionShape" parent="SceneTriggers/WestEnter"]
 shape = SubResource( 7 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
