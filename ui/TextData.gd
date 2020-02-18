@@ -22,16 +22,18 @@ static func get_data(filename : String, locality : String):
 	var json = file.get_as_text()
 	var json_result = JSON.parse(json).result
 	
-	for dialogue in json_result["dialogue_data"]:
-		for i in json_result["dialogue_data"][dialogue].size():
-			var temp = json_result["dialogue_data"][dialogue][i]
-			
-			json_result["dialogue_data"][dialogue][i] = sanitize_text(temp)
+	if json_result.has("dialogue_data"):
+		for dialogue in json_result["dialogue_data"]:
+			for i in json_result["dialogue_data"][dialogue].size():
+				var temp = json_result["dialogue_data"][dialogue][i]
+				
+				json_result["dialogue_data"][dialogue][i] = sanitize_text(temp)
 	
-	for prompt in json_result["prompt_data"]:
-		var temp = json_result["prompt_data"][prompt]["text"]
-		
-		json_result["prompt_data"][prompt]["text"] = sanitize_text(temp)
+	if json_result.has("prompt_data"):
+		for prompt in json_result["prompt_data"]:
+			var temp = json_result["prompt_data"][prompt]["text"]
+			
+			json_result["prompt_data"][prompt]["text"] = sanitize_text(temp)
 	
 	file.close()
 	

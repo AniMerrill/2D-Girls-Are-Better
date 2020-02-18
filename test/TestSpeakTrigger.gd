@@ -9,6 +9,10 @@ var response := ""
 
 
 func _ready():
+	# NOTE: This override behavior only happens for built in functions
+	# it seems. Custom defined functions must be manually called with "."
+	# if you want to use the base function (assuming you overrode it).
+	# i.e. .my_function()
 #	print("Override") # Original is automatically called before the override
 	# warning-ignore:return_value_discarded
 	Message.connect("prompt_responded", self, "_on_prompt_responded")

@@ -15,3 +15,6 @@ func _ready():
 	audio.play()
 
 
+func _input(_event):
+	
+	pass

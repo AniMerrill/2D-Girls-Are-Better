@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/BattleScene.gd" type="Script" id=1]
+[ext_resource path="res://objects/protag/protagkun.gltf" type="PackedScene" id=2]
+[ext_resource path="res://objects/Battler.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 8, 0.2, 8 )
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.2
+mid_height = 0.6
+
+[node name="BattleSceneTest" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Stage" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="MeshInstance" parent="Stage"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Partners" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Battler" type="Spatial" parent="Partners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01115, 0, 2.34532 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Partners/Battler"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Battler2" type="Spatial" parent="Partners"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61317, 0, 1.36004 )
+
+[node name="protagkun" parent="Partners/Battler2" instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="Enemies" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Battler0" type="Spatial" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.851 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Enemies/Battler0"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Battler1" type="Spatial" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 2.11684 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Enemies/Battler1"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Battler2" type="Spatial" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0, 1.40484 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Enemies/Battler2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Battler3" type="Spatial" parent="Enemies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0, 0.699443 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Enemies/Battler3"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.5, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MainCamera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 6 )

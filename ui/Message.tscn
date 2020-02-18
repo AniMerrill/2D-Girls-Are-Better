@@ -70,8 +70,7 @@ size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "Hello World"
-text = "0123456789 123456789 123456789 123456789
-0123456789 123456789 123456789 123456789"
+text = "Hello World"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

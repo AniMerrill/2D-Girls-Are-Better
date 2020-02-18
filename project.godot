@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "BattleScene",
+"language": "GDScript",
+"path": "res://objects/BattleScene.gd"
+}, {
 "base": "Reference",
 "class": "JoyputStick",
 "language": "GDScript",
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://ui/TextData.gd"
 } ]
 _global_script_class_icons={
+"BattleScene": "",
 "JoyputStick": "",
 "JoyputStickData": "",
 "MapScene": "",

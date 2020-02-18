@@ -21,5 +21,7 @@ func _ready():
 	SceneTransition.fade_in()
 
 
-func _on_transition_complete():
-	protag.allow_input = true
+func _on_transition_complete(value):
+	match value:
+		SceneTransition.TransitionType.FADE_IN:
+			protag.allow_input = true

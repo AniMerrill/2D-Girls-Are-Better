@@ -1,7 +1,7 @@
 extends Area
 
 
-export var scene_path := ""
+export (String, FILE) var scene_path := ""
 export var trigger_name := ""
 export (PlayerOverworld.Direction) var direction := PlayerOverworld.Direction.EAST
 
@@ -43,27 +43,27 @@ func _on_body_entered(body):
 		if scene == null:
 			print_debug("Invalid scene path: '" + scene_path + "'")
 		elif allow_trigger:
-			var instance_scene = scene.instance()
+			var scene_instance = scene.instance()
 			
-			if instance_scene.has_node("SceneTriggers/" + trigger_name):
-				var trigger : Area = instance_scene.get_node(
+			if scene_instance.has_node("SceneTriggers/" + trigger_name):
+				var trigger : Area = scene_instance.get_node(
 						"SceneTriggers/" + trigger_name
 						)
 				
-				if instance_scene.has_node("Protag"):
+				if scene_instance.has_node("Protag"):
 					body.allow_input = false
 					
 					SceneTransition.fade_out()
 					yield(SceneTransition, "transition_completed")
 					
-					var protag : PlayerOverworld = instance_scene.get_node("Protag")
+					var protag : PlayerOverworld = scene_instance.get_node("Protag")
 					
 					protag.translation = trigger.translation
 					protag.starting_direction = direction
 					protag.allow_input = false
 					
 					get_tree().root.get_node(owner.name).queue_free()
-					get_tree().root.add_child(instance_scene)
+					get_tree().root.add_child(scene_instance)
 				else:
 					print_debug(
 							"Invalid scene! Has no protag node! ",
